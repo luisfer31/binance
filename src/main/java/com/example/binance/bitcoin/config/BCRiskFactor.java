@@ -1,6 +1,6 @@
 package com.example.binance.bitcoin.config;
 
-public enum BitCoinRiskFactor {
+public enum BCRiskFactor {
     W190(80, -100, -190),
     W350(140, -180, -350),
     W600(300, -150, -600),
@@ -8,12 +8,12 @@ public enum BitCoinRiskFactor {
 
     private final double gain;
     private final double lose;
-    private final double winfactor;
+    private final double winFactor;
 
-    BitCoinRiskFactor(double gain, double lose, double winfactor) {
+    BCRiskFactor(double gain, double lose, double winFactor) {
         this.gain = gain;
         this.lose = lose;
-        this.winfactor = winfactor;
+        this.winFactor = winFactor;
     }
 
     public double getGain() {
@@ -24,7 +24,7 @@ public enum BitCoinRiskFactor {
         return lose;
     }
 
-    public double getWinfactor() {
-        return winfactor;
+    public double getWinFactor() {
+        return winFactor;
     }
 }

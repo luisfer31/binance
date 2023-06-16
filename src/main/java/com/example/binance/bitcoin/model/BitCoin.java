@@ -18,27 +18,39 @@ public class BitCoin {
             generator = "bitcoin_sequence"
     )
     private Long id;
+
+    private Character riskF;
     private Double priceMarket;
     private Double priceEntry;
-    private Double size;
+
+    private Double gain;
+
+    private Double lose;
     private Double invest;
+    private Double size;
     private LocalDate date;
     private LocalTime time;
+    private String info;
 
     public BitCoin() {
     }
 
-    public BitCoin(Long id, Double priceMarket, Double priceEntry, Double size, Double invest, LocalDate date, LocalTime time) {
+    public BitCoin(Long id, Character riskF, Double priceMarket, Double priceEntry, Double gain, Double lose, Double invest, Double size, LocalDate date, LocalTime time, String info) {
         this.id = id;
+        this.riskF = riskF;
         this.priceMarket = priceMarket;
         this.priceEntry = priceEntry;
-        this.size = size;
+        this.gain = gain;
+        this.lose = lose;
         this.invest = invest;
+        this.size = size;
         this.date = date;
         this.time = time;
+        this.info = info;
     }
 
-    public BitCoin(Double priceMarket, Double invest) {
+    public BitCoin(Character riskF, Double priceMarket, Double invest) {
+        this.riskF = riskF;
         this.priceMarket = priceMarket;
         this.invest = invest;
     }
@@ -95,6 +107,42 @@ public class BitCoin {
         return size;
     }
 
+    public void setSize(Double size) {
+        this.size = size;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+    public Double getGain() {
+        return gain;
+    }
+
+    public void setGain(Double gain) {
+        this.gain = gain;
+    }
+
+    public Double getLose() {
+        return lose;
+    }
+
+    public void setLose(Double lose) {
+        this.lose = lose;
+    }
+
+    public Character getRiskF() {
+        return riskF;
+    }
+
+    public void setRiskF(Character riskF) {
+        this.riskF = riskF;
+    }
+
     @Override
     public String toString() {
         return "BitCoin{" +
@@ -105,6 +153,7 @@ public class BitCoin {
                 ", invest=" + invest +
                 ", date=" + date +
                 ", time=" + time +
+                ", info='" + info + '\'' +
                 '}';
     }
 }

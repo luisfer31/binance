@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "binance/bitcoin")
+@RequestMapping(path = "binance")
 public class BitCoinController {
     private final BitCoinService bitCoinService;
 
@@ -23,10 +23,17 @@ public class BitCoinController {
     }
 
     @PostMapping("/data_entry")
-    public void addData(
+    public List<BitCoin> addData(
+            @RequestParam(required = true)Character riskF,
             @RequestParam(required = true) Double priceMarket,
             @RequestParam(required = true) Double invest) {
-        bitCoinService.addData(priceMarket, invest);
+        bitCoinService.addData(riskF, priceMarket, invest);
+        return bitCoinService.getDataHistory();
+    }
+
+    @GetMapping("show_strategy")
+    public String showStrategy(BitCoin bitCoin){
+        return bitCoinService.showStrategy(bitCoin);
     }
 
 }
