@@ -101,10 +101,17 @@ public class BitCoinService {
         priGain = String.valueOf(bitCoin.getGain());
         priLose = String.valueOf(bitCoin.getLose());
 
-        String info = String.format(
-
-                "MARKET PRICE: %.2f    PRICE ENTRY: %.2f    TARGET PROFIT: %.2f    STOP LOSE: %.2f",
-                bitCoin.getPriceMarket(), bitCoin.getPriceEntry(), bitCoin.getGain(), bitCoin.getLose());
+//        String info = String.format(
+//
+//                "MARKET PRICE: %.2f    PRICE ENTRY: %.2f    TARGET PROFIT: %.2f    STOP LOSE: %.2f",
+//                bitCoin.getPriceMarket(), bitCoin.getPriceEntry(), bitCoin.getGain(), bitCoin.getLose());
+        var info= """
+               MARKET PRICE: %.2f    
+               PRICE ENTRY: %.2f    
+               TARGET PROFIT: %.2f    
+               STOP LOSE: %.2f
+                """.formatted(bitCoin.getPriceMarket(), bitCoin.getPriceEntry(), bitCoin.getGain(), bitCoin.getLose());
+        System.out.println(info);
         return info;
 
     }
